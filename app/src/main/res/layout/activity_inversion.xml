@@ -125,17 +125,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/etConsulta2"
-        android:layout_width="379dp"
-        android:layout_height="238dp"
-        android:ems="10"
-        android:inputType="text"
+        android:layout_width="330dp"
+        android:layout_height="208dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFecha2"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/etContexto2"
+        app:layout_constraintVertical_bias="0.666"
+        tools:layout_editor_absoluteX="31dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

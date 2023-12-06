@@ -1,10 +1,12 @@
 package xyz.maga.EconomIA;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -20,13 +22,18 @@ import xyz.maga.EconomIA.BaseDeDatos.TablaInversiones;
 public class inversion extends AppCompatActivity {
     private Button btnMostrar2;
     private Button btnGuardar2;
-    private EditText etContexto2, etValor2, etFecha2, etConsulta2;
+    private EditText etContexto2, etValor2, etFecha2;
+    private TextView etConsulta2;
+    ImageButton home3, buscar3, perfil2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inversion);
 
+        home3 = findViewById(R.id.home3);
+        buscar3 = findViewById(R.id.buscar3);
+        perfil2 = findViewById(R.id.perfil2);
         etContexto2 = findViewById(R.id.etContexto2);
         etConsulta2 = findViewById(R.id.etConsulta2);
         etFecha2 = findViewById(R.id.etFecha2);
@@ -58,6 +65,18 @@ public class inversion extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "reg",Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public void home(View view ){
+        Intent home= new Intent(this, PaginaPrincipal.class);
+        startActivity(home);
+    }
+    public void buscar(View view ){
+        Intent buscar= new Intent(this, Ayuda.class);
+        startActivity(buscar);
+    }
+    public void perfil(View view ){
+        Intent perfil= new Intent(this, perfil.class);
+        startActivity(perfil);
     }
 }
 

@@ -122,23 +122,18 @@
         android:layout_height="wrap_content"
         android:text="Mis egresos"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtContexto"
+        app:layout_constraintBottom_toTopOf="@+id/etContexto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.154" />
 
-    <EditText
+    <TextView
         android:id="@+id/etConsulta"
-        android:layout_width="339dp"
-        android:layout_height="277dp"
-        android:ems="10"
-        android:inputType="text"
+        android:layout_width="330dp"
+        android:layout_height="208dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintTop_toBottomOf="@+id/etContexto"
+        tools:layout_editor_absoluteX="31dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

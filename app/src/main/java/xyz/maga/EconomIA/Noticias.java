@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,17 +19,13 @@ public class Noticias extends AppCompatActivity {
 
     private ListView listView_DiarioMexico;
 
-    private String noticierosMexico [] = {"El Tiempo","La Republica","Portafolio","El economista"};
-    private String ulrnoticieros[]={"https://www.eltiempo.com/noticias/educacion-financiera","https://www.larepublica.co/","https://www.portafolio.co/noticias-economicas/educacion-financiera","https://www.eleconomista.es/"};
+    private String noticierosMexico [] = {"El Tiempo","BBC","Portafolio","El economista"};
+    private String ulrnoticieros[]={"https://www.eltiempo.com/noticias/educacion-financiera","https://www.bbc.com/mundo/topics/cwr9j2xgyynt","https://www.portafolio.co/noticias-economicas/educacion-financiera","https://www.eleconomista.es/"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
-
-        //Mostrar Icono en el ActionBar
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
 
         listView_DiarioMexico = findViewById(R.id.listview_diariosMexico);

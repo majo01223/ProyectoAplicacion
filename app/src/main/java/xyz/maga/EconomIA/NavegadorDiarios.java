@@ -21,10 +21,6 @@ public class NavegadorDiarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navegador_diarios2);
 
-        //Mostrar Icono en el ActionBar
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-
 
         navegador = findViewById(R.id.webView_NavegadorDiario);
 

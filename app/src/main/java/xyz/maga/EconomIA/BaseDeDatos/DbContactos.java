@@ -13,22 +13,25 @@ public class DbContactos extends BDCreada{
         super(context);
         this.context =context;
     }
-    public long insertaContacto(String usuario, String contraseña, String correo){
+    public long insertaContacto(String usuario, String contraseña, String correo) {
         long id = 0;
         try {
-        BDCreada bdCreada = new BDCreada(context);
-        SQLiteDatabase db = bdCreada.getWritableDatabase();
+            BDCreada bdCreada = new BDCreada(context);
+            SQLiteDatabase db = bdCreada.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("usuario", usuario);
-        values.put("contraseña", contraseña);
-        values.put("correo", correo);
-        id = db.insert(tablaContactos, null, values);
-        } catch (Exception ex){
+            ContentValues values = new ContentValues();
+            values.put("usuario", usuario);
+            values.put("contraseña", contraseña);
+            values.put("correo", correo);
+
+            id = db.insert(tablaContactos, null, values);
+
+        } catch (Exception ex) {
             ex.toString();
         }
         return id;
     }
+
 }
 
 

@@ -35,24 +35,33 @@ public class tips extends AppCompatActivity {
     ImageButton sendButton;
     List<Message> messageList;
     MessageAdapter messageAdapter;
-    public static final MediaType JSON
-            = MediaType.get("application/json; charset=utf-8");
+    public static final MediaType JSON = MediaType.get("application/json");
+
     OkHttpClient client = new OkHttpClient();
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tips);
         messageList = new ArrayList<>();
+        messageAdapter = new MessageAdapter(messageList);
 
         recyclerView = findViewById(R.id.recycler_view);
         welcomeTextView = findViewById(R.id.welcome_text);
         messageEditText = findViewById(R.id.message_edit_text);
         sendButton = findViewById(R.id.send_btn);
 
-        //setup recycler view
-        messageAdapter = new MessageAdapter(messageList);
+        if (recyclerView != null) {
+            LinearLayoutManager llm = new LinearLayoutManager(this);
+            llm.setStackFromEnd(true);
+            recyclerView.setLayoutManager(llm);
+            if (recyclerView != null && messageList != null && !messageList.isEmpty()) {
+                messageAdapter = new MessageAdapter(messageList);
+                recyclerView.setAdapter(messageAdapter);
+            }
+        }
+
         recyclerView.setAdapter(messageAdapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setStackFromEnd(true);
@@ -89,7 +98,7 @@ public class tips extends AppCompatActivity {
 
         JSONObject jsonBody = new JSONObject();
         try {
-            jsonBody.put("model","text-davinci-003");
+            jsonBody.put("model","gpt-3.5-turbo");
             jsonBody.put("prompt",question);
             jsonBody.put("max_tokens",4000);
             jsonBody.put("temperature",0);
@@ -98,8 +107,8 @@ public class tips extends AppCompatActivity {
         }
         RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
         Request request = new Request.Builder()
-                .url("https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer YOUR_API_KEY")
+                .url("https://api.openai.com/v1/chat/completions")
+                .header("Authorization","Bearer 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")
                 .post(body)
                 .build();
 
@@ -112,7 +121,7 @@ public class tips extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if(response.isSuccessful()){
-                    JSONObject  jsonObject = null;
+                    JSONObject jsonObject = null;
                     try {
                         jsonObject = new JSONObject(response.body().string());
                         JSONArray jsonArray = jsonObject.getJSONArray("choices");
@@ -121,19 +130,14 @@ public class tips extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-                }else{
-                    addResponse("Failed to load response due to "+response.body().toString());
+                } else {
+                    // Imprimir el código de estado
+                    int responseCode = response.code();
+                    String responseBody = response.body().string();
+                    addResponse("Failed to load response. Response code: " + responseCode + ", Response body: " + responseBody);
                 }
             }
+
         });
-
-
-
-
-
     }
-
-
 }

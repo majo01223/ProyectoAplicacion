@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class BDCreada extends SQLiteOpenHelper {
 
-    private static final int BdeD_version = 1;
+    private static final int BdeD_version = 2;
     private static final String BdeD_nombre = "agenda.db";
     public static final String tablaContactos = "t_contactos";
 
@@ -28,7 +28,7 @@ public class BDCreada extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE" + tablaContactos);
+        sqLiteDatabase.execSQL("DROP TABLE " + tablaContactos);
         onCreate(sqLiteDatabase);
     }
 }

@@ -21,13 +21,18 @@ import xyz.maga.EconomIA.BaseDeDatos.TablaEgresos;
 public class egresos extends AppCompatActivity {
     private Button btnMostrar;
     private Button btnGuardar;
-    private EditText etContexto, etValor, etFecha, etConsulta;
+    private EditText etContexto, etValor, etFecha;
+    private TextView etConsulta;
+    ImageButton home3, buscar3, perfil2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_egresos);
 
+        home3 = findViewById(R.id.home3);
+        buscar3 = findViewById(R.id.buscar3);
+        perfil2 = findViewById(R.id.perfil2);
         etContexto = findViewById(R.id.etContexto);
         etConsulta = findViewById(R.id.etConsulta);
         etFecha = findViewById(R.id.etFecha);
@@ -59,5 +64,17 @@ public class egresos extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "reg",Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public void home(View view ){
+        Intent home= new Intent(this, PaginaPrincipal.class);
+        startActivity(home);
+    }
+    public void buscar(View view ){
+        Intent buscar= new Intent(this, Ayuda.class);
+        startActivity(buscar);
+    }
+    public void perfil(View view ){
+        Intent perfil= new Intent(this, perfil.class);
+        startActivity(perfil);
     }
 }

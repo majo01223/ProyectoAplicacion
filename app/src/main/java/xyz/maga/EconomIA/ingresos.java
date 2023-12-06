@@ -39,7 +39,9 @@ import xyz.maga.EconomIA.BaseDeDatos.TablaIngresos;
 public class ingresos extends AppCompatActivity {
     private Button btnMostrar1;
     private Button btnGuardar1;
-    private EditText etContexto1, etValor1, etFecha1, etConsulta1;
+    private EditText etContexto1, etValor1, etFecha1;
+    private TextView etConsulta1;
+    ImageButton home3, buscar3, perfil2;
 
 
     @Override
@@ -47,6 +49,9 @@ public class ingresos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingresos);
 
+        home3 = findViewById(R.id.home3);
+        buscar3 = findViewById(R.id.buscar3);
+        perfil2 = findViewById(R.id.perfil2);
         etContexto1 = findViewById(R.id.etContexto1);
         etConsulta1 = findViewById(R.id.etConsulta1);
         etFecha1 = findViewById(R.id.etFecha1);
@@ -78,5 +83,17 @@ public class ingresos extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "reg",Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public void home(View view ){
+        Intent home= new Intent(this, PaginaPrincipal.class);
+        startActivity(home);
+    }
+    public void buscar(View view ){
+        Intent buscar= new Intent(this, Ayuda.class);
+        startActivity(buscar);
+    }
+    public void perfil(View view ){
+        Intent perfil= new Intent(this, perfil.class);
+        startActivity(perfil);
     }
 }

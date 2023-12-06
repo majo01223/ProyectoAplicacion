@@ -7,11 +7,13 @@
     tools:context=".tips">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/recycler_view"
+        android:layout_width="412dp"
+        android:layout_height="730dp"
         android:layout_above="@id/bottom_layout"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/welcome_text"
